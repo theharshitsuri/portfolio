@@ -71,6 +71,7 @@ export default function Home() {
                   </a>
                   <a
                     href={personalInfo.links.resume}
+                    download="Harshit_Suri_Resume_SWE.pdf"
                     className="px-6 py-3 bg-white/10 backdrop-blur-lg text-white rounded-xl hover:bg-white/20 transition-all text-sm font-semibold border border-white/20"
                   >
                     Resume

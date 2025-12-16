@@ -9,7 +9,7 @@ export const personalInfo = {
   links: {
     github: "https://github.com/theharshitsuri",
     linkedin: "https://linkedin.com/in/harshitsuri",
-    resume: "/Harshit_Suri_Resume.pdf"
+    resume: "/Harshit_Suri_Resume_SWE.pdf"
   }
 };
 
