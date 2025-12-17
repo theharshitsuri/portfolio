@@ -36,7 +36,7 @@ export interface Ticket {
 export const tickets: Ticket[] = [
   {
     id: "HARSHIT-001",
-    title: "LeaseLink: Student Subleasing Platform",
+    title: "LeaseLink: Student Sublease Marketplace",
     description: "Built a sublease marketplace for students using React + Firebase. Implemented secure auth and dynamic listing management with unique ID system.",
     status: "SHIPPED",
     priority: "P0",
@@ -50,9 +50,37 @@ export const tickets: Ticket[] = [
   },
   {
     id: "HARSHIT-002",
+    title: "ModelSight: LLM Observability Platform",
+    description: "Production-ready AI safety platform preventing 90% of hallucinations through prompt optimization. Multi-tenant SaaS with FastAPI + Next.js, supporting OpenAI/Anthropic/Gemini with real-time detection, cost tracking, and enterprise monitoring.",
+    status: "SHIPPED",
+    priority: "P0",
+    type: "PRODUCT",
+    tags: ["FastAPI", "Next.js", "AI/ML", "PostgreSQL", "Multi-tenant"],
+    metrics: "90% hallucination prevention, 3 LLM providers",
+    timeline: "12 weeks",
+    github: "https://github.com/theharshitsuri/modelsight",
+    category: "product",
+    learnings: "Built the reliability layer AI needs for production. Prompt optimization > post-detection."
+  },
+  {
+    id: "HARSHIT-003",
+    title: "MarketHours: AI Trading Social Network",
+    description: "Full-stack trading platform with React Native + Node.js. AI-powered signals, real-time market data (stocks/forex/crypto), social feed, and push notifications. Complete with portfolio tracking, price alerts, and Firebase integration.",
+    status: "SHIPPED",
+    priority: "P0",
+    type: "PRODUCT",
+    tags: ["React Native", "Node.js", "MongoDB", "Firebase", "WebSockets"],
+    metrics: "Real-time data, AI signals, social features",
+    timeline: "10 weeks",
+    github: "https://github.com/theharshitsuri/markethours",
+    category: "product",
+    learnings: "Shipped a production mobile app end-to-end. Real-time systems are hard but worth it."
+  },
+  {
+    id: "HARSHIT-004",
     title: "TheraWise: AI Mental Health Companion",
     description: "AI-powered virtual therapist using Flutter + GPT API. Personalized CBT exercises, mood tracking, and stress-relief strategies.",
-    status: "SHIPPED",
+    status: "ARCHIVED",
     priority: "P0",
     type: "PRODUCT",
     tags: ["Flutter", "OpenAI", "SQLite", "Mobile"],
@@ -63,10 +91,10 @@ export const tickets: Ticket[] = [
     learnings: "Privacy concerns killed growth. Should've addressed earlier."
   },
   {
-    id: "HARSHIT-003",
+    id: "HARSHIT-005",
     title: "Preppify: AI Interview Coach",
     description: "Flutter app for interview prep with Firebase auth. LLM-powered mock interviews across Finance, CS, Math, Engineering with real-time feedback.",
-    status: "SHIPPED_MOSTLY",
+    status: "ARCHIVED",
     priority: "P1",
     type: "PRODUCT",
     tags: ["Flutter", "Firebase", "LLM", "Education"],
@@ -77,7 +105,7 @@ export const tickets: Ticket[] = [
     learnings: "Feedback quality matters more than question quantity. Pivoted mid-build."
   },
   {
-    id: "HARSHIT-004",
+    id: "HARSHIT-006",
     title: "Bank of America: Autobot Platform",
     description: "Enhanced automation platform for 1000+ system deployments. Optimized Angular front-end, reducing UI latency by 30%.",
     status: "SHIPPED",
@@ -90,7 +118,7 @@ export const tickets: Ticket[] = [
     learnings: "Enterprise scale is a different beast. Learned to think in systems, not features."
   },
   {
-    id: "HARSHIT-005",
+    id: "HARSHIT-007",
     title: "Delta Airlines: Predictive SQL Tool",
     description: "Built internal SQL tool that cut manual entry by 60% across 5 departments. Data analysis + feature engineering for LSTM forecasting.",
     status: "SHIPPED",
@@ -103,7 +131,7 @@ export const tickets: Ticket[] = [
     learnings: "Boring tools that save time > flashy features nobody uses."
   },
   {
-    id: "HARSHIT-006",
+    id: "HARSHIT-008",
     title: "RegDev: Workflow Automation Platform",
     description: "Led cross-functional team to build workflow automation tool. 80% reduction in manual data entry with intuitive PDF/data viewing interface.",
     status: "SHIPPED",
@@ -116,7 +144,7 @@ export const tickets: Ticket[] = [
     learnings: "Domain experts don't care about tech stack. They care about saving time."
   },
   {
-    id: "HARSHIT-007",
+    id: "HARSHIT-009",
     title: "TEDx @ USF: VP Operations",
     description: "Led team of 17 to execute TEDx event. Managed $7K+ budget, coordinated logistics for 150+ attendees.",
     status: "SHIPPED",
@@ -129,7 +157,7 @@ export const tickets: Ticket[] = [
     learnings: "Delegation is a skill. Learned it the hard way by trying to do everything myself."
   },
   {
-    id: "HARSHIT-008",
+    id: "HARSHIT-010",
     title: "SHPE: Corporate Partnerships",
     description: "VP of External Affairs. Secured $10K+ in partnerships, organized USF's largest club-led career fair (5+ companies, 200+ attendees).",
     status: "SHIPPED",
@@ -142,7 +170,7 @@ export const tickets: Ticket[] = [
     learnings: "Cold emails work if you provide value first. Got 80% response rate."
   },
   {
-    id: "HARSHIT-009",
+    id: "HARSHIT-011",
     title: "Automated Data Processing Script",
     description: "Python script to process 10,000+ CSV entries. Smart column detection using pandas, regex, BeautifulSoup.",
     status: "SHIPPED",
@@ -155,7 +183,7 @@ export const tickets: Ticket[] = [
     learnings: "Automation pays off. This script saved 20+ hours/week."
   },
   {
-    id: "HARSHIT-010",
+    id: "HARSHIT-012",
     title: "Loan Origination Software",
     description: "Full mortgage processing system with secure auth, role-based access, and dynamic database views.",
     status: "ARCHIVED",
@@ -168,7 +196,7 @@ export const tickets: Ticket[] = [
     learnings: "Good learning project, but solving problems I don't have is boring."
   },
   {
-    id: "HARSHIT-011",
+    id: "HARSHIT-013",
     title: "RISC-V Architecture Guide",
     description: "Wrote comprehensive guide to RISC-V assembly language and computer architecture for beginners.",
     status: "SHIPPED",

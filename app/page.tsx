@@ -14,6 +14,74 @@ export default function Home() {
     ? tickets 
     : tickets.filter(t => t.category === selectedCategory);
 
+  // Timeline Node Component
+  function TimelineNode({ exp, idx }: { exp: typeof experience[0]; idx: number }) {
+    const isLeft = idx % 2 === 0;
+    
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5, delay: idx * 0.1 }}
+        className={`relative flex items-start gap-8 ${
+          isLeft ? 'md:flex-row' : 'md:flex-row-reverse'
+        } flex-row pl-16 md:pl-0`}
+      >
+        {/* Content Card - Takes half width on desktop */}
+        <div className={`flex-1 md:w-1/2 ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}>
+          <div className="bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 p-6 hover:border-blue-500/50 transition-all duration-300 shadow-xl">
+            {/* Header */}
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex-1">
+                <h3 className="font-bold text-white text-xl mb-2">{exp.role}</h3>
+                <div className="text-blue-400 font-semibold text-lg mb-1">{exp.company}</div>
+                <div className="text-gray-500 text-sm font-mono">{exp.period}</div>
+              </div>
+            </div>
+            
+            {/* Highlights - Always Visible */}
+            <div className="space-y-3">
+              {exp.highlights.map((highlight, i) => (
+                <div key={i} className="flex items-start gap-3">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                  <p className="text-gray-300 text-sm leading-relaxed">{highlight}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* Timeline Node - Centered */}
+        <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 flex items-center justify-center">
+          <motion.div
+            whileHover={{ scale: 1.15 }}
+            className="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-4 border-black shadow-lg shadow-blue-500/50 group z-10"
+          >
+            <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-20 group-hover:opacity-40" />
+            <div className="relative flex items-center justify-center h-full">
+              <span className="text-white font-bold text-sm md:text-base">{idx + 1}</span>
+            </div>
+          </motion.div>
+          
+          {/* Connecting Line to Card */}
+          <div className={`absolute top-1/2 ${
+            isLeft 
+              ? 'left-full md:left-full ml-2 md:ml-2' 
+              : 'right-full md:right-full mr-2 md:mr-2'
+          } w-6 md:w-12 h-0.5 bg-gradient-to-r ${
+            isLeft 
+              ? 'from-blue-500/50 to-transparent' 
+              : 'from-transparent to-blue-500/50'
+          }`} />
+        </div>
+        
+        {/* Empty space for alternating layout on desktop */}
+        <div className="hidden md:block flex-1 md:w-1/2" />
+      </motion.div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Solid Background */}
@@ -150,46 +218,24 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Experience Section */}
+        {/* Experience Section - Interactive Timeline */}
         <section className="mb-16">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-white">Experience</h2>
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-white mb-2">Experience</h2>
+            <p className="text-gray-400 text-sm">My journey building products at scale</p>
           </div>
           
-          <div className="space-y-4">
-            {experience.map((exp, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 p-6 hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-2xl"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div className="flex-1">
-                    <h3 className="font-bold text-2xl text-white mb-2">{exp.role}</h3>
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <div className="text-blue-400 font-bold text-lg">{exp.company}</div>
-                      <span className="text-gray-500">•</span>
-                      <div className="text-gray-400 text-sm">{exp.period}</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-lg">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                    <span className="text-blue-300 text-xs font-semibold uppercase tracking-wider">Internship</span>
-                  </div>
-                </div>
-                
-                <div className="space-y-3">
-                  {exp.highlights.map((highlight, i) => (
-                    <div key={i} className="flex items-start gap-3 group">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0 group-hover:scale-150 transition-transform"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed">{highlight}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+          {/* Vertical Timeline */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Timeline Line */}
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-blue-500/50 transform md:-translate-x-1/2" />
+            
+            {/* Timeline Items */}
+            <div className="space-y-12">
+              {experience.map((exp, idx) => (
+                <TimelineNode key={idx} exp={exp} idx={idx} />
+              ))}
+            </div>
           </div>
         </section>
 
