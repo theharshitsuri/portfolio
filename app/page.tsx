@@ -171,7 +171,7 @@ export default function Home() {
                   <div className="h-px bg-white/10" />
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
-                      <div className="text-3xl font-bold text-white">$10K+</div>
+                      <div className="text-3xl font-bold text-white">$13K+</div>
                       <div className="text-xs text-gray-400">Partnerships</div>
                     </div>
                     <div>
@@ -220,7 +220,7 @@ export default function Home() {
 
         {/* Experience Section - Interactive Timeline */}
         <section className="mb-16">
-          <div className="mb-12">
+          <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold text-white mb-2">Experience</h2>
             <p className="text-gray-400 text-sm">My journey building products at scale</p>
           </div>
@@ -239,56 +239,29 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 p-8 shadow-2xl">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-white">Skills & Tools</h2>
+        {/* Skills Section - Minimal Abstract */}
+        <section className="mb-16">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-white mb-2">Tools</h2>
+            <p className="text-gray-400 text-sm">What I work with</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-bold text-white mb-4 text-lg">Languages</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.languages.map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-xl text-sm font-semibold border border-blue-500/30 hover:bg-blue-500/30 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-white mb-4 text-lg">Frameworks</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.frameworks.map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-emerald-500/20 text-emerald-300 rounded-xl text-sm font-semibold border border-emerald-500/30 hover:bg-emerald-500/30 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-white mb-4 text-lg">Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.tools.map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-xl text-sm font-semibold border border-purple-500/30 hover:bg-purple-500/30 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="font-bold text-white mb-4 text-lg">Concepts</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.concepts.map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-orange-500/20 text-orange-300 rounded-xl text-sm font-semibold border border-orange-500/30 hover:bg-orange-500/30 transition-colors">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+          {/* Simple Tag Cloud */}
+          <div className="flex flex-wrap gap-3 justify-center">
+            {skills.categories.map((category) => (
+              category.skills.map((skill) => (
+                <motion.span
+                  key={skill.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05 }}
+                  className="px-4 py-2 bg-white/5 text-gray-300 rounded-lg text-sm border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all cursor-default"
+                >
+                  {skill.name}
+                </motion.span>
+              ))
+            ))}
           </div>
         </section>
       </main>

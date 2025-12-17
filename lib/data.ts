@@ -296,8 +296,61 @@ export const experience = [
 ];
 
 export const skills = {
-  languages: ["Python", "TypeScript", "C++", "Java", "SQL"],
-  frameworks: ["React", "Next.js", "Flutter", "Angular", "Node.js"],
-  tools: ["Firebase", "PostgreSQL", "Git", "Figma", "OpenAI API"],
-  concepts: ["Product Strategy", "System Design", "ML/AI", "Data Analysis", "UX Design"]
+  categories: [
+    {
+      name: "Frontend",
+      icon: "🎨",
+      skills: [
+        { name: "React", proficiency: 95, projects: 2 },
+        { name: "Next.js", proficiency: 90, projects: 1 },
+        { name: "Angular", proficiency: 75, projects: 1 }
+      ]
+    },
+    {
+      name: "Backend",
+      icon: "⚙️",
+      skills: [
+        { name: "Python", proficiency: 95, projects: 3 },
+        { name: "FastAPI", proficiency: 90, projects: 1 },
+        { name: "Node.js", proficiency: 85, projects: 1 },
+        { name: "SQL", proficiency: 85, projects: 1 }
+      ]
+    },
+    {
+      name: "Mobile",
+      icon: "📱",
+      skills: [
+        { name: "Flutter", proficiency: 85, projects: 2 },
+        { name: "React Native", proficiency: 85, projects: 1 }
+      ]
+    },
+    {
+      name: "Database",
+      icon: "💾",
+      skills: [
+        { name: "Firebase", proficiency: 80, projects: 3 },
+        { name: "Database", proficiency: 85, projects: 4 }
+      ]
+    },
+    {
+      name: "AI/ML",
+      icon: "🤖",
+      skills: [
+        { name: "OpenAI", proficiency: 90, projects: 2 },
+        { name: "Claude", proficiency: 85, projects: 1 },
+        { name: "Gemini", proficiency: 80, projects: 1 },
+        { name: "LSTM", proficiency: 70, projects: 1 }
+      ]
+    },
+    {
+      name: "Tools & Other",
+      icon: "🛠️",
+      skills: [
+        { name: "Git", proficiency: 90, projects: 10 },
+        { name: "Jira", proficiency: 80, projects: 2 },
+        { name: "Pandas", proficiency: 85, projects: 1 },
+        { name: "WebSockets", proficiency: 80, projects: 1 }
+      ]
+    }
+  ]
 };
