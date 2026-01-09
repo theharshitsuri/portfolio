@@ -56,7 +56,7 @@ export default function Home() {
         <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 flex items-center justify-center">
           <motion.div
             whileHover={{ scale: 1.15 }}
-            className="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-4 border-black shadow-lg shadow-blue-500/50 group z-10"
+            className="relative w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500 border-4 border-black shadow-lg shadow-blue-500/50 group z-10"
           >
             <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-20 group-hover:opacity-40" />
             <div className="relative flex items-center justify-center h-full">
@@ -69,10 +69,10 @@ export default function Home() {
             isLeft 
               ? 'left-full md:left-full ml-2 md:ml-2' 
               : 'right-full md:right-full mr-2 md:mr-2'
-          } w-6 md:w-12 h-0.5 bg-gradient-to-r ${
+          } w-6 md:w-12 h-0.5 ${
             isLeft 
-              ? 'from-blue-500/50 to-transparent' 
-              : 'from-transparent to-blue-500/50'
+              ? 'bg-blue-500/50' 
+              : 'bg-blue-500/50'
           }`} />
         </div>
         
@@ -228,7 +228,7 @@ export default function Home() {
           {/* Vertical Timeline */}
           <div className="relative max-w-4xl mx-auto">
             {/* Timeline Line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/50 via-blue-500/30 to-blue-500/50 transform md:-translate-x-1/2" />
+            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-blue-500/40 transform md:-translate-x-1/2" />
             
             {/* Timeline Items */}
             <div className="space-y-12">

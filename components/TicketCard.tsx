@@ -67,7 +67,7 @@ export default function TicketCard({ ticket }: { ticket: Ticket }) {
         boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
       }}
       className={`
-        bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl
+        bg-white/10 backdrop-blur-xl
         rounded-2xl border border-white/20 ${status.borderColor} border-l-4 
         overflow-hidden cursor-pointer transition-all duration-300
         hover:border-white/30 hover:bg-white/15
@@ -84,7 +84,10 @@ export default function TicketCard({ ticket }: { ticket: Ticket }) {
           </span>
           <div className={`w-2.5 h-2.5 rounded-full ${priority.color} ring-2 ${priority.ring} animate-pulse`} title={priority.label}></div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <span className="px-2.5 py-1 bg-purple-500/20 text-purple-300 rounded-lg text-xs font-medium border border-purple-500/30">
+            For: {ticket.persona}
+          </span>
           <span className="text-xs text-gray-400 font-mono uppercase tracking-wider">{ticket.type}</span>
         </div>
       </div>
