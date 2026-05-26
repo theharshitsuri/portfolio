@@ -8,8 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Harshit Suri - Product & Engineering",
-  description: "CS Student at USF. Building AI products at Bank of America and Delta. Available for New Grad PM & SWE roles.",
+  title: "Harshit Suri | Decision Brief Portfolio",
+  description:
+    "CS + Product Engineer and AI systems builder focused on software engineering, AI reliability, product engineering, and workflow automation.",
 };
 
 export default function RootLayout({
@@ -19,11 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} font-sans antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
     </html>
   );
 }
