@@ -5,14 +5,14 @@ import clsx from "clsx";
 import { personalInfo } from "@/lib/data";
 
 const links = [
-  { href: "#work", label: "Work" },
-  { href: "#experience", label: "Experience" },
-  { href: "#toolkit", label: "Toolkit", hideOnSmall: true },
-  { href: "#contact", label: "Contact" },
+  { href: "#work", label: "work" },
+  { href: "#experience", label: "experience" },
+  { href: "#about", label: "about", wide: true },
+  { href: personalInfo.links.resume, label: "resume", external: true },
 ];
 
 export default function Nav() {
-  // The scroll-edge line appears only once content actually sits under the bar.
+  // The edge line appears only once content actually sits under the bar.
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -29,28 +29,29 @@ export default function Nav() {
         scrolled && "scroll-edge"
       )}
     >
-      <nav
-        aria-label="Primary"
-        className="mx-auto flex h-13 max-w-[61.25rem] items-center justify-between gap-4 px-5"
-      >
-        <a
-          href="#top"
-          className="type-callout font-semibold tracking-[-0.015em] text-label"
-        >
-          {personalInfo.name}
+      <nav aria-label="Primary" className="col flex h-15 items-center justify-between gap-4">
+        <a href="#top" className="mono flex shrink-0 items-center gap-2.5 whitespace-nowrap text-[0.8125rem]">
+          <span aria-hidden className="size-1.5 rounded-full bg-[var(--accent)]" />
+          harshit suri
         </a>
-        <ul className="flex items-center gap-5 sm:gap-7">
-          {links.map((link) => (
-            <li key={link.href} className={clsx(link.hideOnSmall && "hidden sm:block")}>
-              <a
-                href={link.href}
-                className="nav-link type-footnote text-label-2 transition-colors duration-150"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-4 sm:gap-7">
+          <ul className="flex items-center gap-3.5 sm:gap-7">
+            {links.map((l) => (
+              <li key={l.label} className={clsx(l.wide && "hidden sm:block")}>
+                <a
+                  href={l.href}
+                  {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                  className="nav-link mono text-[0.75rem] text-[var(--ink-dim)] transition-colors duration-150 sm:text-[0.8125rem]"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="#contact" className="pressable pill hidden sm:inline-flex">
+            say hello →
+          </a>
+        </div>
       </nav>
     </header>
   );

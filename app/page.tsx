@@ -1,199 +1,201 @@
-import { ArrowUpRight } from "lucide-react";
-import { education, experience, personalInfo, skills, stats } from "@/lib/data";
+import { experience, moreWork, personalInfo, principles } from "@/lib/data";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
-import WorkSection from "@/components/WorkSection";
+import ChapterList from "@/components/ChapterList";
 
-function SectionHeader({ title, subtitle }: { title: string; subtitle: string }) {
+function SectionHead({ num, label, children }: { num: string; label: string; children: React.ReactNode }) {
   return (
-    <Reveal className="mb-10 max-w-2xl">
-      <h2 className="type-title-1 text-label">{title}</h2>
-      <p className="type-body mt-3 text-label-2">{subtitle}</p>
-    </Reveal>
+    <div className="mb-16 grid gap-8 md:mb-24 md:grid-cols-[1fr_1.6fr] md:items-end">
+      <Reveal>
+        <p className="eyebrow">
+          {num} — {label}
+        </p>
+      </Reveal>
+      <Reveal delay={0.05}>
+        <h2 className="h-section">{children}</h2>
+      </Reveal>
+    </div>
   );
 }
 
 export default function Home() {
   const year = new Date().getFullYear();
+  const { links } = personalInfo;
 
   return (
     <>
       <Nav />
 
-      <main id="top" className="mx-auto max-w-[61.25rem] px-5">
+      <main id="top">
         {/* Hero */}
-        <section className="pb-8 pt-32 sm:pb-12 sm:pt-44">
-          <Reveal>
-            <p className="type-footnote inline-flex items-center gap-2 font-medium text-label-2">
-              <span aria-hidden className="size-2 rounded-full bg-green" />
-              {personalInfo.role}
-            </p>
-          </Reveal>
+        <section className="relative overflow-hidden pb-16 pt-28 sm:pb-24 sm:pt-36">
+          <div aria-hidden className="hero-grid" />
+          <div aria-hidden className="hero-glow" />
 
-          <Reveal delay={0.05}>
-            <h1 className="type-display mt-5 text-label">{personalInfo.name}</h1>
-          </Reveal>
+          <div className="col relative">
+            <Reveal>
+              <div className="mono mb-16 flex flex-col gap-1.5 text-[0.75rem] text-[var(--ink-faint)] sm:mb-24 sm:flex-row sm:justify-between">
+                <span>
+                  <span className="text-[var(--ink-dim)]">{personalInfo.initials}</span> · {personalInfo.location}
+                </span>
+                <span>Portfolio · v2026.10</span>
+                <span>USF — Summa cum laude</span>
+              </div>
+            </Reveal>
 
-          <Reveal delay={0.1}>
-            <p className="type-title-2 mt-4 max-w-3xl text-label-2">
-              I build AI-native products, internal tools and operational systems.
-            </p>
-            <p className="type-body mt-5 max-w-xl text-label-2">
-              The hard part usually isn&rsquo;t writing the code. It&rsquo;s deciding what should
-              exist, who it helps, and how to prove it worked.
-            </p>
-          </Reveal>
+            <Reveal delay={0.05}>
+              <h1 className="display">
+                Harshit
+                <br />
+                Suri<span className="text-[var(--accent)]">.</span>
+              </h1>
+            </Reveal>
 
-          <Reveal delay={0.15} className="mt-9 flex flex-wrap gap-3">
-            <a href={`mailto:${personalInfo.email}`} className="pressable btn btn-primary">
-              Email me
-            </a>
-            <a href="#work" className="pressable btn btn-secondary">
-              See my work
-            </a>
-          </Reveal>
+            <Reveal delay={0.12}>
+              <p className="lead mt-12 max-w-[46rem] sm:mt-16">
+                CS + Product Engineer. I build <span className="serif">AI-native</span> products,
+                internal tools, and operational systems{" "}
+                <span className="dim">
+                  — software where the hard part isn&rsquo;t writing code, but deciding what should
+                  exist, who it helps, and how to prove it worked.
+                </span>
+              </p>
+            </Reveal>
 
-          {/* Stats */}
-          <Reveal delay={0.2}>
-            <dl className="mt-16 grid grid-cols-2 gap-y-8 border-t border-separator pt-8 sm:grid-cols-4">
-              {stats.map((stat) => (
-                <div key={stat.label} className="flex flex-col pr-4">
-                  <dt className="type-footnote order-2 mt-1 text-label-2">{stat.label}</dt>
-                  <dd className="type-title-1 tabular -order-1 text-label">{stat.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
+            <Reveal delay={0.18}>
+              <p className="mono mt-16 flex items-center gap-2.5 text-[0.75rem] text-[var(--ink-faint)] sm:mt-24">
+                <span aria-hidden className="size-1.5 rounded-full bg-[var(--accent)]" />
+                {personalInfo.now.role}
+                <span className="text-[var(--ink)]">@ {personalInfo.now.org}</span>
+              </p>
+            </Reveal>
+          </div>
         </section>
 
         {/* Work */}
-        <section id="work" className="py-16 sm:py-24">
-          <SectionHeader
-            title="Work"
-            subtitle="Products I've launched, tools I've built inside big companies, and the teams I've led. Including the ones that didn't take off."
-          />
-          <WorkSection />
+        <section id="work" className="py-24 sm:py-36">
+          <div className="col">
+            <SectionHead num="02" label="Featured">
+              Five chapters that show how I think,{" "}
+              <span className="faint">build, and operate.</span>
+            </SectionHead>
+
+            <Reveal>
+              <ChapterList />
+            </Reveal>
+
+            <Reveal className="mt-20 grid gap-8 md:grid-cols-[1fr_1.6fr]">
+              <p className="eyebrow">Also built</p>
+              <ul className="grid gap-x-10 gap-y-5 sm:grid-cols-2">
+                {moreWork.map((w) => (
+                  <li key={w.title}>
+                    <a href={w.href} target="_blank" rel="noreferrer" className="group block">
+                      <span className="chapter-title body font-medium text-[var(--ink)] group-hover:text-[var(--accent)]">
+                        {w.title} <span className="mono text-[var(--ink-faint)]">↗</span>
+                      </span>
+                      <span className="small mt-0.5 block text-[var(--ink-faint)]">{w.note}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
         </section>
 
         {/* Experience */}
-        <section id="experience" className="py-16 sm:py-24">
-          <SectionHeader
-            title="Experience"
-            subtitle="Trained inside enterprises. Building like a founder."
-          />
-          <Reveal>
-            <ol className="card overflow-hidden">
-              {experience.map((exp, i) => (
-                <li
-                  key={exp.company + exp.period}
-                  className="relative px-6 py-6 sm:px-8 sm:py-7"
-                >
-                  {i > 0 && (
-                    // Inset separator, like a grouped list.
-                    <span
-                      aria-hidden
-                      className="absolute inset-x-6 top-0 h-px bg-separator sm:inset-x-8"
-                    />
-                  )}
-                  <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+        <section id="experience" className="py-24 sm:py-36">
+          <div className="col">
+            <SectionHead num="03" label="Selected experience">
+              Trained inside enterprises. <span className="faint">Building like a founder.</span>
+            </SectionHead>
+
+            <ol className="border-t border-[var(--rule)]">
+              {experience.map((e) => (
+                <li key={e.company + e.period} className="border-b border-[var(--rule)]">
+                  <Reveal className="grid gap-3 py-9 md:grid-cols-[10rem_minmax(0,1fr)_minmax(0,1.5fr)] md:gap-10 md:py-11">
+                    <p className="mono text-[0.75rem] text-[var(--ink-faint)] md:pt-2">{e.period}</p>
                     <div>
-                      <h3 className="type-headline text-label">{exp.company}</h3>
-                      <p className="type-callout mt-0.5 text-label-2">{exp.role}</p>
+                      <h3 className="text-[1.75rem] font-medium leading-[1.1] tracking-[-0.025em]">
+                        {e.company}
+                      </h3>
+                      <p className="mono mt-2 text-[0.75rem] text-[var(--ink-faint)]">{e.role}</p>
                     </div>
-                    <p className="type-footnote tabular shrink-0 text-label-3">{exp.period}</p>
-                  </div>
-                  <ul className="mt-4 space-y-1.5">
-                    {exp.highlights.map((h) => (
-                      <li key={h} className="type-callout flex gap-3 text-label-2">
-                        <span aria-hidden className="mt-[0.6em] size-1 shrink-0 rounded-full bg-label-3" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
+                    <p className="body mt-2 text-[var(--ink-dim)] md:mt-0">{e.text}</p>
+                  </Reveal>
                 </li>
               ))}
-              <li className="relative px-6 py-6 sm:px-8 sm:py-7">
-                <span aria-hidden className="absolute inset-x-6 top-0 h-px bg-separator sm:inset-x-8" />
-                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                  <div>
-                    <h3 className="type-headline text-label">{education.school}</h3>
-                    <p className="type-callout mt-0.5 text-label-2">{education.degree}</p>
-                  </div>
-                  <p className="type-footnote tabular shrink-0 text-label-3">{education.period}</p>
-                </div>
-                <p className="type-callout mt-4 text-label-2">{education.honors}</p>
-              </li>
             </ol>
-          </Reveal>
+          </div>
         </section>
 
-        {/* Toolkit */}
-        <section id="toolkit" className="py-16 sm:py-24">
-          <SectionHeader title="Toolkit" subtitle="What I reach for, grouped by where it fits." />
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {skills.categories.map((cat, i) => (
-              <Reveal key={cat.name} delay={(i % 3) * 0.05} className="card p-6">
-                <h3 className="type-caption uppercase tracking-[0.06em] text-label-3">
-                  {cat.name}
-                </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {cat.skills.map((s) => (
-                    <li
-                      key={s}
-                      className="type-footnote rounded-full bg-fill px-3 py-1.5 font-medium text-label"
-                    >
-                      {s}
-                    </li>
-                  ))}
-                </ul>
+        {/* Philosophy */}
+        <section id="about" className="border-y border-[var(--rule)] bg-[var(--bg-elev)] py-24 sm:py-36">
+          <div className="col">
+            <div className="mb-20 grid gap-8 md:grid-cols-[1fr_1.6fr] md:items-end">
+              <Reveal>
+                <p className="eyebrow">04 — Philosophy</p>
               </Reveal>
-            ))}
+              <Reveal delay={0.05}>
+                <p className="text-[clamp(1.75rem,3.6vw,3.25rem)] font-normal leading-[1.12] tracking-[-0.028em]">
+                  I&rsquo;m interested in software that <span className="serif">compresses complexity</span>{" "}
+                  — tools that help small teams move with the cognitive overhead of one.
+                </p>
+              </Reveal>
+            </div>
+
+            <ol className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+              {principles.map((p, i) => (
+                <li key={p.title} className="border-t border-[var(--rule-strong)] pt-6">
+                  <Reveal delay={i * 0.05}>
+                    <p className="mono text-[0.75rem] text-[var(--accent)]">— 0{i + 1}</p>
+                    <h3 className="mt-4 text-[1.25rem] font-medium tracking-[-0.018em]">{p.title}</h3>
+                    <p className="body mt-2 text-[var(--ink-dim)]">{p.text}</p>
+                  </Reveal>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-24 text-center sm:py-32">
-          <Reveal>
-            <h2 className="type-title-1 mx-auto max-w-2xl text-label">
-              Have a problem worth solving?
-            </h2>
-            <p className="type-body mx-auto mt-4 max-w-md text-label-2">
-              I&rsquo;m probably interested. The fastest way to reach me is email.
-            </p>
-            <div className="mt-9 flex flex-wrap justify-center gap-3">
-              <a href={`mailto:${personalInfo.email}`} className="pressable btn btn-primary">
+        <section id="contact" className="py-28 sm:py-40">
+          <div className="col">
+            <Reveal>
+              <p className="eyebrow">05 — Contact</p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="h-section mt-10 sm:mt-14">
+                Have a problem worth <span className="serif">solving?</span>
+                <br />
+                <span className="dim">I&rsquo;m probably interested.</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="email-link mt-14 inline-block break-all text-[clamp(1.5rem,4.4vw,3.5rem)] font-medium tracking-[-0.03em]"
+              >
                 {personalInfo.email}
               </a>
-            </div>
-            <div className="mt-6 flex flex-wrap justify-center gap-x-7 gap-y-3">
-              {[
-                { href: personalInfo.links.linkedin, label: "LinkedIn", external: true },
-                { href: personalInfo.links.github, label: "GitHub", external: true },
-                { href: personalInfo.links.resume, label: "Résumé" },
-              ].map((l) => (
-                <a
-                  key={l.label}
-                  href={l.href}
-                  {...(l.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : { target: "_blank" })}
-                  className="link type-callout inline-flex items-center gap-0.5"
-                >
-                  {l.label}
-                  <ArrowUpRight aria-hidden className="size-4" strokeWidth={2.25} />
-                </a>
-              ))}
-            </div>
-          </Reveal>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <div className="link-row mt-14 flex flex-wrap gap-x-10 gap-y-3">
+                <a href={links.linkedin} target="_blank" rel="noreferrer">↗ linkedin</a>
+                <a href={links.github} target="_blank" rel="noreferrer">↗ github</a>
+                <a href={links.resume} target="_blank" rel="noreferrer">↗ resume / pdf</a>
+                <a href={links.leaselink} target="_blank" rel="noreferrer">↗ leaselink → live</a>
+                <a href={links.modelsight} target="_blank" rel="noreferrer">↗ modelsight → live</a>
+              </div>
+            </Reveal>
+          </div>
         </section>
       </main>
 
-      <footer className="border-t border-separator">
-        <div className="mx-auto flex max-w-[61.25rem] flex-col gap-1 px-5 py-6 sm:flex-row sm:justify-between">
-          <p className="type-footnote text-label-3">
-            © {year} {personalInfo.name}
-          </p>
-          <p className="type-footnote text-label-3">{personalInfo.location}</p>
+      <footer className="border-t border-[var(--rule)]">
+        <div className="col mono flex flex-col gap-2 py-8 text-[0.75rem] text-[var(--ink-faint)] sm:flex-row sm:justify-between">
+          <span>© {year} {personalInfo.name}</span>
+          <span>USF ’26 · Summa cum laude · {personalInfo.location}</span>
+          <a href="#top" className="nav-link transition-colors">↩ back to top</a>
         </div>
       </footer>
     </>
