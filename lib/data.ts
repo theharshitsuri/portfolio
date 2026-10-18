@@ -9,9 +9,18 @@ export const personalInfo = {
   links: {
     github: "https://github.com/theharshitsuri",
     linkedin: "https://linkedin.com/in/harshitsuri",
-    resume: "/Harshit_Suri_Resume_SWE.pdf"
-  }
+    resume: "/Harshit_Suri_Resume_SWE.pdf",
+    resumePM: "/Suri_Harshit_Resume_PM.pdf"
+  },
+  availability: "Open to new-grad PM & SWE roles · 2026"
 };
+
+export const stats = [
+  { value: "4", label: "Internships at top companies" },
+  { value: "12+", label: "Projects shipped" },
+  { value: "$13K+", label: "Partnerships secured" },
+  { value: "200+", label: "Event attendees" }
+];
 
 export type TicketStatus = "SHIPPED" | "IN_PROGRESS" | "SHIPPED_MOSTLY" | "FAILED_LEARNED" | "ARCHIVED";
 export type TicketPriority = "P0" | "P1" | "P2" | "P3";
@@ -240,32 +249,16 @@ export const tickets: Ticket[] = [
   }
 ];
 
-export const problemCategories = [
-  {
-    id: "product",
-    title: "Need someone to build 0→1 AI products",
-    icon: "",
-    description: "I ship products people actually use"
-  },
-  {
-    id: "technical",
-    title: "Need technical depth + business sense",
-    icon: "",
-    description: "I code AND understand why it matters"
-  },
-  {
-    id: "leadership",
-    title: "Need someone who can lead teams",
-    icon: "",
-    description: "I've led teams and shipped results"
-  },
-  {
-    id: "research",
-    title: "Just browsing (show me everything)",
-    icon: "",
-    description: "Explore all my work"
-  }
-];
+// Filters for the Work section. Labels name what's inside, not vague umbrellas.
+export const workFilters = [
+  { id: "all", label: "All" },
+  { id: "product", label: "Products" },
+  { id: "technical", label: "Engineering" },
+  { id: "leadership", label: "Leadership" },
+  { id: "research", label: "Writing" }
+] as const;
+
+export type WorkFilter = (typeof workFilters)[number]["id"];
 
 export const experience = [
   {
