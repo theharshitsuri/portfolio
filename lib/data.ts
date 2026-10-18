@@ -8,7 +8,7 @@ export const personalInfo = {
     github: "https://github.com/theharshitsuri",
     linkedin: "https://www.linkedin.com/in/harshitsuri",
     resume: "/Harshit_Suri_Resume.pdf",
-    leaselink: "https://www.leaselink.info/",
+    leaselink: "https://leaselink.info/",
     modelsight: "https://www.modelsight.net",
   },
 };
@@ -40,7 +40,7 @@ export const chapters: Chapter[] = [
       "Launched at USF and reached 250+ users, enough pull from 20+ other universities to drive a nationwide rebuild.",
       "Talked to 50+ students before writing code. Still the best decision on the project.",
     ],
-    links: [{ label: "leaselink.info", href: "https://www.leaselink.info/" }],
+    links: [{ label: "leaselink.info", href: "https://leaselink.info/" }],
   },
   {
     n: "02",
