@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { experience, personalInfo, skills, stats } from "@/lib/data";
+import { education, experience, personalInfo, skills, stats } from "@/lib/data";
 import Nav from "@/components/Nav";
 import Reveal from "@/components/Reveal";
 import WorkSection from "@/components/WorkSection";
@@ -26,7 +26,7 @@ export default function Home() {
           <Reveal>
             <p className="type-footnote inline-flex items-center gap-2 font-medium text-label-2">
               <span aria-hidden className="size-2 rounded-full bg-green" />
-              {personalInfo.availability}
+              {personalInfo.role}
             </p>
           </Reveal>
 
@@ -36,11 +36,11 @@ export default function Home() {
 
           <Reveal delay={0.1}>
             <p className="type-title-2 mt-4 max-w-3xl text-label-2">
-              I figure out what to build, why it matters, and then I ship it.
+              I build AI-native products, internal tools and operational systems.
             </p>
             <p className="type-body mt-5 max-w-xl text-label-2">
-              Computer Science at USF. Built products at Bank of America and Delta, and
-              shipped my own from first interview to launch.
+              The hard part usually isn&rsquo;t writing the code. It&rsquo;s deciding what should
+              exist, who it helps, and how to prove it worked.
             </p>
           </Reveal>
 
@@ -79,13 +79,13 @@ export default function Home() {
         <section id="experience" className="py-16 sm:py-24">
           <SectionHeader
             title="Experience"
-            subtitle="Four internships across banking, aviation and AI."
+            subtitle="Trained inside enterprises. Building like a founder."
           />
           <Reveal>
             <ol className="card overflow-hidden">
               {experience.map((exp, i) => (
                 <li
-                  key={exp.company}
+                  key={exp.company + exp.period}
                   className="relative px-6 py-6 sm:px-8 sm:py-7"
                 >
                   {i > 0 && (
@@ -112,6 +112,17 @@ export default function Home() {
                   </ul>
                 </li>
               ))}
+              <li className="relative px-6 py-6 sm:px-8 sm:py-7">
+                <span aria-hidden className="absolute inset-x-6 top-0 h-px bg-separator sm:inset-x-8" />
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                  <div>
+                    <h3 className="type-headline text-label">{education.school}</h3>
+                    <p className="type-callout mt-0.5 text-label-2">{education.degree}</p>
+                  </div>
+                  <p className="type-footnote tabular shrink-0 text-label-3">{education.period}</p>
+                </div>
+                <p className="type-callout mt-4 text-label-2">{education.honors}</p>
+              </li>
             </ol>
           </Reveal>
         </section>
@@ -128,10 +139,10 @@ export default function Home() {
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {cat.skills.map((s) => (
                     <li
-                      key={s.name}
+                      key={s}
                       className="type-footnote rounded-full bg-fill px-3 py-1.5 font-medium text-label"
                     >
-                      {s.name}
+                      {s}
                     </li>
                   ))}
                 </ul>
@@ -144,11 +155,10 @@ export default function Home() {
         <section id="contact" className="py-24 text-center sm:py-32">
           <Reveal>
             <h2 className="type-title-1 mx-auto max-w-2xl text-label">
-              Let&rsquo;s build what&rsquo;s next.
+              Have a problem worth solving?
             </h2>
             <p className="type-body mx-auto mt-4 max-w-md text-label-2">
-              I&rsquo;m looking for new-grad PM and SWE roles starting in 2026. The fastest way
-              to reach me is email.
+              I&rsquo;m probably interested. The fastest way to reach me is email.
             </p>
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <a href={`mailto:${personalInfo.email}`} className="pressable btn btn-primary">
@@ -159,8 +169,7 @@ export default function Home() {
               {[
                 { href: personalInfo.links.linkedin, label: "LinkedIn", external: true },
                 { href: personalInfo.links.github, label: "GitHub", external: true },
-                { href: personalInfo.links.resume, label: "Résumé (SWE)" },
-                { href: personalInfo.links.resumePM, label: "Résumé (PM)" },
+                { href: personalInfo.links.resume, label: "Résumé" },
               ].map((l) => (
                 <a
                   key={l.label}

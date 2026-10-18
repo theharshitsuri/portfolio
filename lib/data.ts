@@ -1,25 +1,20 @@
 export const personalInfo = {
   name: "Harshit Suri",
-  title: "CS Student → Product Visionary",
-  email: "harshitsinghsuri@usf.edu",
-  phone: "(929) 451-6562",
-  tagline: "Building AI products that people actually want to use",
-  bio: "Computer Science @ USF. Shipped products at Bank of America and Delta.\nI don't just code, I figure out what to build and why it matters.",
-  location: "Tampa, FL",
+  email: "surih2003@gmail.com",
+  location: "Charlotte, NC",
   links: {
     github: "https://github.com/theharshitsuri",
-    linkedin: "https://linkedin.com/in/harshitsuri",
-    resume: "/Harshit_Suri_Resume_SWE.pdf",
-    resumePM: "/Suri_Harshit_Resume_PM.pdf"
+    linkedin: "https://www.linkedin.com/in/harshitsuri",
+    resume: "/Harshit_Suri_Resume.pdf"
   },
-  availability: "Open to new-grad PM & SWE roles · 2026"
+  role: "Software Engineer at Bank of America"
 };
 
 export const stats = [
-  { value: "4", label: "Internships at top companies" },
-  { value: "12+", label: "Projects shipped" },
-  { value: "$13K+", label: "Partnerships secured" },
-  { value: "200+", label: "Event attendees" }
+  { value: "3.91", label: "GPA, summa cum laude" },
+  { value: "250+", label: "LeaseLink users at launch" },
+  { value: "100+", label: "Team hours a month saved" },
+  { value: "$10K", label: "Partnerships secured" }
 ];
 
 export type TicketStatus = "SHIPPED" | "IN_PROGRESS" | "SHIPPED_MOSTLY" | "FAILED_LEARNED" | "ARCHIVED";
@@ -47,14 +42,14 @@ export const tickets: Ticket[] = [
   {
     id: "HARSHIT-001",
     title: "LeaseLink: Student Sublease Marketplace",
-    description: "Built a sublease marketplace for students using React + Firebase. Implemented secure auth and dynamic listing management with unique ID system.",
+    description: "A sublease marketplace for students, built to fix the trust problem and scattered listings in student housing. I led product strategy, the roadmap and go-to-market, and built the web and mobile apps end to end.",
     status: "SHIPPED",
     priority: "P0",
     type: "PRODUCT",
-    tags: ["React", "Firebase", "Auth", "Real-time DB"],
+    tags: ["React", "Flutter", "Supabase"],
     persona: "Students",
-    metrics: "Active users across 3 universities",
-    timeline: "8 weeks",
+    metrics: "250+ users, interest from 20+ universities",
+    timeline: "2025",
     link: "https://www.leaselink.info",
     category: "product",
     learnings: "Talked to 50+ students before writing code. Best decision ever."
@@ -62,14 +57,15 @@ export const tickets: Ticket[] = [
   {
     id: "HARSHIT-002",
     title: "ModelSight: LLM Observability Platform",
-    description: "Production-ready AI safety platform preventing 90% of hallucinations through prompt optimization. Multi-tenant SaaS with FastAPI + Next.js, supporting OpenAI/Anthropic/Gemini with real-time detection, cost tracking, and enterprise monitoring.",
+    description: "An LLM proxy and observability platform that watches production AI for prompt and response drift, hallucinations and output quality, with automated evals and reliability alerting. Multi-tenant from day one.",
     status: "SHIPPED",
     priority: "P0",
     type: "PRODUCT",
     tags: ["FastAPI", "Next.js", "AI/ML", "PostgreSQL", "Multi-tenant"],
     persona: "AI Engineers",
-    metrics: "90% hallucination prevention, 3 LLM providers",
-    timeline: "12 weeks",
+    metrics: "Fault-tolerant proxy, CI/CD evals and alerting",
+    timeline: "2026",
+    link: "https://www.modelsight.net",
     github: "https://github.com/theharshitsuri/modelsight",
     category: "product",
     learnings: "Built the reliability layer AI needs for production. Prompt optimization > post-detection."
@@ -121,14 +117,14 @@ export const tickets: Ticket[] = [
   },
   {
     id: "HARSHIT-006",
-    title: "Bank of America: Autobot Platform",
-    description: "Enhanced automation platform for 1000+ system deployments. Optimized Angular front-end, reducing UI latency by 30%.",
+    title: "Bank of America: Confluence–SharePoint Dashboard",
+    description: "Designed an automation dashboard in Python and Angular that moves team knowledge from Confluence to SharePoint, and led the enterprise Angular migration from v13 to v20. Took it from requirements to prototype in six weeks.",
     status: "SHIPPED",
     priority: "P0",
     type: "FEATURE",
-    tags: ["Angular", "Automation", "Enterprise"],
-    persona: "DevOps Engineers",
-    metrics: "↓ 30% UI latency, 1000+ systems",
+    tags: ["Python", "Angular", "Automation"],
+    persona: "Engineering Teams",
+    metrics: "100+ team hours a month reclaimed",
     timeline: "Summer 2025",
     category: "technical",
     learnings: "Enterprise scale is a different beast. Learned to think in systems, not features."
@@ -163,28 +159,28 @@ export const tickets: Ticket[] = [
   },
   {
     id: "HARSHIT-009",
-    title: "TEDx @ USF: VP Operations",
-    description: "Led team of 17 to execute TEDx event. Managed $7K+ budget, coordinated logistics for 150+ attendees.",
+    title: "TEDxUSF: Vice President",
+    description: "Led a 17-person team to run TEDxUSF keynote events. Managed a $7K+ budget and the logistics for 150+ attendees.",
     status: "SHIPPED",
     priority: "P1",
     type: "PRODUCT",
     tags: ["Leadership", "Events", "Operations"],
     persona: "Event Attendees",
     metrics: "150+ attendees, $7K budget",
-    timeline: "Ongoing",
+    timeline: "2023–2025",
     category: "leadership",
     learnings: "Delegation is a skill. Learned it the hard way by trying to do everything myself."
   },
   {
     id: "HARSHIT-010",
     title: "SHPE: Corporate Partnerships",
-    description: "VP of External Affairs. Secured $10K+ in partnerships, organized USF's largest club-led career fair (5+ companies, 200+ attendees).",
+    description: "VP of External Affairs. Led a team of 9 to land 20+ corporate partnerships worth $10K, and organized USF's largest club-led career fair.",
     status: "SHIPPED",
     priority: "P1",
     type: "PRODUCT",
     tags: ["Partnerships", "Leadership", "Events"],
     persona: "Students & Companies",
-    metrics: "$10K+ partnerships, 200+ attendees",
+    metrics: "$10K raised, 30% chapter growth",
     timeline: "2023-2024",
     category: "leadership",
     learnings: "Cold emails work if you provide value first. Got 80% response rate."
@@ -263,102 +259,68 @@ export type WorkFilter = (typeof workFilters)[number]["id"];
 export const experience = [
   {
     company: "Bank of America",
+    role: "Software Engineer",
+    period: "July 2026 – Present",
+    highlights: [
+      "Build internal system-management applications in Java and Angular for enterprise technology environments",
+      "Develop REST APIs, backend services and SQL workflows that connect these tools to enterprise platforms",
+      "Work across design, testing, code review, CI/CD and production troubleshooting in an Agile team"
+    ]
+  },
+  {
+    company: "Bank of America",
     role: "Software Engineering Intern",
-    period: "June 2025 - August 2025",
+    period: "June – August 2025",
     highlights: [
-      "Enhanced Autobot platforms for 1000+ systems",
-      "Improved Angular front-end performance by 30%",
-      "Collaborated on product roadmap alignment"
+      "Designed a Confluence–SharePoint dashboard in Python and Angular, projected to reclaim 100+ team hours a month",
+      "Migrated the enterprise Angular front end from v13 to v20 for better maintainability and test stability",
+      "Gathered requirements with product owners and delivered a prototype in six weeks"
     ]
   },
   {
-    company: "Delta Airlines",
-    role: "Software Engineering Intern - Predictive Technology",
-    period: "January 2025 - May 2025",
+    company: "Delta Air Lines",
+    role: "Software Engineering Intern, Predictive Technology",
+    period: "January – May 2025",
     highlights: [
-      "Built SQL tool reducing manual entry by 60%",
-      "Supported LSTM forecasting models",
-      "Mapped data lineage for 100+ systems"
+      "Built a SQL-based internal tool that cut manual entry by 60% across 5 departments",
+      "Did data analysis and feature engineering for LSTM forecasting models",
+      "Mapped data lineage across 100+ systems on a large distributed data platform"
     ]
   },
   {
-    company: "RegDev Inc.",
-    role: "Software Engineering Intern",
-    period: "June 2024 - August 2024",
+    company: "RegDev",
+    role: "Technical Product Management Intern",
+    period: "June – August 2024",
     highlights: [
-      "Led workflow automation tool (80% time reduction)",
-      "Improved data analysis efficiency by 50%",
-      "Built user-friendly PDF viewing interface"
+      "Ran end-user interviews and defined workflow requirements",
+      "Designed interfaces and built automation pipelines that cut manual processing by 80%"
     ]
   },
   {
-    company: "Gupshup Technologies",
+    company: "Gupshup",
     role: "AI Engineering Intern",
-    period: "May 2023 - July 2023",
+    period: "May – July 2023",
     highlights: [
-      "Automated analysis of 10K+ spreadsheet entries",
-      "Implemented ReAct prompt engineering for GPT",
-      "Optimized AI model responses"
+      "Automated processing of 10,000+ chatbot responses with Python, Pandas and regex",
+      "Improved model accuracy and latency with ReAct prompting"
     ]
   }
 ];
 
+export const education = {
+  school: "University of South Florida",
+  degree: "BS Computer Science · Summa cum laude · 3.91 GPA",
+  period: "2022 – 2026",
+  honors: "Presidential Scholar, Dean's List, Bulls LEAD, Resident Assistant, Teaching Assistant"
+};
+
 export const skills = {
   categories: [
-    {
-      name: "Frontend",
-      icon: "🎨",
-      skills: [
-        { name: "React", proficiency: 95, projects: 2 },
-        { name: "Next.js", proficiency: 90, projects: 1 },
-        { name: "Angular", proficiency: 75, projects: 1 }
-      ]
-    },
-    {
-      name: "Backend",
-      icon: "⚙️",
-      skills: [
-        { name: "Python", proficiency: 95, projects: 3 },
-        { name: "FastAPI", proficiency: 90, projects: 1 },
-        { name: "Node.js", proficiency: 85, projects: 1 },
-        { name: "SQL", proficiency: 85, projects: 1 }
-      ]
-    },
-    {
-      name: "Mobile",
-      icon: "📱",
-      skills: [
-        { name: "Flutter", proficiency: 85, projects: 2 },
-        { name: "React Native", proficiency: 85, projects: 1 }
-      ]
-    },
-    {
-      name: "Database",
-      icon: "💾",
-      skills: [
-        { name: "Firebase", proficiency: 80, projects: 3 },
-        { name: "Database", proficiency: 85, projects: 4 }
-      ]
-    },
-    {
-      name: "AI/ML",
-      icon: "🤖",
-      skills: [
-        { name: "OpenAI", proficiency: 90, projects: 2 },
-        { name: "Claude", proficiency: 85, projects: 1 },
-        { name: "Gemini", proficiency: 80, projects: 1 },
-        { name: "LSTM", proficiency: 70, projects: 1 }
-      ]
-    },
-    {
-      name: "Tools & Other",
-      icon: "🛠️",
-      skills: [
-        { name: "Git", proficiency: 90, projects: 10 },
-        { name: "Jira", proficiency: 80, projects: 2 },
-        { name: "Pandas", proficiency: 85, projects: 1 },
-        { name: "WebSockets", proficiency: 80, projects: 1 }
-      ]
-    }
+    { name: "Languages", skills: ["Python", "Java", "SQL", "JavaScript", "C/C++", "HTML & CSS"] },
+    { name: "Frameworks", skills: ["Angular", "React", "Next.js", "Flutter", "FastAPI"] },
+    { name: "Backend & cloud", skills: ["REST APIs", "AWS", "Supabase", "PostgreSQL", "NoSQL", "CI/CD"] },
+    { name: "AI", skills: ["LLM evals", "OpenAI", "Claude", "Gemini", "LSTM forecasting"] },
+    { name: "Product", skills: ["User research", "Roadmapping", "Go-to-market", "Excel modeling"] },
+    { name: "Tools", skills: ["Git", "Jira", "Pandas", "Confluence", "SharePoint"] }
   ]
 };

@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Harshit Suri — Product & Engineering",
   description:
-    "CS at USF. Built AI and internal products at Bank of America and Delta. Open to new-grad PM and SWE roles.",
+    "Software engineer at Bank of America. I build AI-native products, internal tools and operational systems.",
 };
 
 export const viewport: Viewport = {
